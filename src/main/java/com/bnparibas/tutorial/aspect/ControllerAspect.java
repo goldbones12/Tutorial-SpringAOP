@@ -2,6 +2,8 @@ package com.bnparibas.tutorial.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -18,26 +20,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ControllerAspect {
 
 	private static final Logger log = LoggerFactory.getLogger(ControllerAspect.class);
-	 
-   @Pointcut("within(@org.springframework.web.bind.annotation.RestController *) && @annotation(requestMapping)")
-	public void controller(RequestMapping requestMapping) {
+
+	@Pointcut("@annotation(Time)")
+	public void timePointcut() {
 	}
 
-	@Before("controller(requestMapping)")
-	public void advice(JoinPoint thisJoinPoint, RequestMapping requestMapping) {
-		log.info("Logging request mapping");
+	@Around("timePointcut()")
+	public Object profileStrategyMethods(ProceedingJoinPoint pjp) throws Throwable {
 
-		// do whatever you want with the value
+		long start = System.currentTimeMillis();
+		Object value = pjp.proceed();
+		long elapsedTime = System.currentTimeMillis() - start;
+		log.info("Method execution time: " + elapsedTime + " milliseconds.");
+		return value;
 	}
 
-	@Around("@annotation(loggable)")
-	public Object myAdvice(ProceedingJoinPoint pjp, Loggable loggable) throws Throwable {
-		log.debug("Executing myAdvice!! - Begin");
-		Object returnValue = null;
-
-		log.debug("Start method execution");
-		returnValue = pjp.proceed(); // this will execute the annotated method
-		log.debug("After method execution");
-		return returnValue;
-	}
 }
