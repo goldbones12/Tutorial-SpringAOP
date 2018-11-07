@@ -1,28 +1,36 @@
 package com.bnparibas.tutorial.aspect;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.aspectj.lang.annotation.AfterReturning; 
+import org.springframework.stereotype.Component;
 
 @Aspect
- public class AfterReturningExample {
+@Component
+public class AfterReturningExample {
 
-        private static final Logger logger = LoggerFactory.getLogger(AfterReturningExample.class);
-        
-        @Pointcut("within(@org.springframework.web.bind.annotation.RestController *) && @annotation(requestMapping)")
-         public void controller(RequestMapping requestMapping) {}
+	private static final Logger logger = LoggerFactory.getLogger(AfterReturningExample.class);
 
-    /** 
-     * This is the method which I would like to execute 
-     *  after a selected method execution.
-     */ 
-         @AfterReturning(pointcut = "controller(requestMapping)", returning = "retVal")
-          public void afterReturningAdvice(JoinPoint jp, RequestMapping requestMapping, Object retVal) {
-              String returningValue = retVal.toString();
-               logger.info("Returning value= {}", returningValue);
-              // prints afterReturning advice
-           }}
+	@Pointcut("execution(* com.bnparibas.tutorial.ws.GreetingRestController.greetAfter(..))")
+	public void controller() {
+	}
+
+	/**
+	 * This is the method which I would like to execute after a selected method
+	 * execution.
+	 */
+	@AfterReturning(pointcut = "lel()", returning = "pipoca")
+	public void afterReturningAdvice(JoinPoint jp, Object pipoca) {
+		String returningValue = pipoca.toString();
+		logger.info("Returning value= {}", returningValue);
+		// prints afterReturning advice
+	}
+	
+	
+	@Pointcut("execution(* greetAfter(..))")
+	public void lel() {
+	}
+}

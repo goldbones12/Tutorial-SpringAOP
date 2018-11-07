@@ -1,14 +1,16 @@
 package com.bnparibas.tutorial.aspect;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.aspectj.lang.annotation.AfterThrowing;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Aspect
+@Component
 public class AfterThrowingExample {
 
     private static final Logger logger = LoggerFactory.getLogger(AfterThrowingExample.class);
