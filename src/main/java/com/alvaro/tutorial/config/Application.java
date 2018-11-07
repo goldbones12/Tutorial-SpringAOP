@@ -1,4 +1,4 @@
-package config;
+package com.alvaro.tutorial.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@ComponentScan(value = { "com.bnparibas.tutorial.aspect", "com.bnparibas.tutorial.ws" })
+@ComponentScan(value = { "com.alvaro.tutorial.aspect", "com.alvaro.tutorial.ws" })
 @EnableSwagger2
 public class Application extends SpringBootServletInitializer {
 

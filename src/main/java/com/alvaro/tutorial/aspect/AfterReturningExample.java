@@ -1,4 +1,4 @@
-package com.bnparibas.tutorial.aspect;
+package com.alvaro.tutorial.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -14,7 +14,7 @@ public class AfterReturningExample {
 
 	private static final Logger logger = LoggerFactory.getLogger(AfterReturningExample.class);
 
-	@Pointcut("execution(* com.bnparibas.tutorial.ws.GreetingRestController.greetAfter(..))")
+	@Pointcut("execution(* com.alvaro.tutorial.ws.GreetingRestController.greetAfter(..))")
 	public void controller() {
 	}
 

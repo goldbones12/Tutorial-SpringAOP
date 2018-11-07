@@ -1,4 +1,4 @@
-package com.bnparibas.tutorial.ws;
+package com.alvaro.tutorial.ws;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

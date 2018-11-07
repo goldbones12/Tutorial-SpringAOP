@@ -1,4 +1,4 @@
-package config;
+package com.alvaro.tutorial.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +18,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.bnparibas.tutorial.ws"))
+                .apis(RequestHandlerSelectors.basePackage("com.alvaro.tutorial.ws"))
                 .build();
     }
 

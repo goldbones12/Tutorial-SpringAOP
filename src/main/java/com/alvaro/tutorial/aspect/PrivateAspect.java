@@ -1,4 +1,4 @@
-package com.bnparibas.tutorial.aspect;
+package com.alvaro.tutorial.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -16,7 +16,7 @@ public class PrivateAspect {
 
 	private static final Logger log = LoggerFactory.getLogger(PrivateAspect.class);
 	 
-   @Pointcut("within(@org.springframework.web.bind.annotation.RestController *) && execution(* com.bnparibas.tutorial.ws.GreetingRestController.greetPrivate(..))")
+   @Pointcut("within(@org.springframework.web.bind.annotation.RestController *) && execution(* com.alvaro.tutorial.ws.GreetingRestController.greetPrivate(..))")
 	public void controller() {
 	}
 

@@ -1,4 +1,4 @@
-package com.bnparibas.tutorial.aspect;
+package com.alvaro.tutorial.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,7 +14,7 @@ public class PrivateExample {
     //private Logger logger = LoggerFactory.getLogger(MyAspect.class.getName());
     private static final Logger logger = LoggerFactory.getLogger(BeforeExample.class);
 
-    @Pointcut("within(@org.springframework.web.bind.annotation.RestController *) && execution(* com.bnparibas.tutorial.ws.GreetingRestController.methodPrivate(..))")
+    @Pointcut("within(@org.springframework.web.bind.annotation.RestController *) && execution(* com.alvaro.tutorial.ws.GreetingRestController.methodPrivate(..))")
     public void controller(RequestMapping requestMapping) {
     }
 

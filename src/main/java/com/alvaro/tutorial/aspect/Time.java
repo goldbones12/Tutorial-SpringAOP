@@ -1,4 +1,4 @@
-package com.bnparibas.tutorial.aspect;
+package com.alvaro.tutorial.aspect;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

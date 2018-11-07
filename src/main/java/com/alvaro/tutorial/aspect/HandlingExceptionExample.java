@@ -1,4 +1,4 @@
-package com.bnparibas.tutorial.aspect;
+package com.alvaro.tutorial.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -14,7 +14,7 @@ public class HandlingExceptionExample {
 
 	private static final Logger log = LoggerFactory.getLogger(HandlingExceptionExample.class);
 
-	@Pointcut("within(@org.springframework.web.bind.annotation.RestController *) && execution(* com.bnparibas.tutorial.ws.GreetingRestController.greetHandling(..))")
+	@Pointcut("within(@org.springframework.web.bind.annotation.RestController *) && execution(* com.alvaro.tutorial.ws.GreetingRestController.greetHandling(..))")
 	public void controller() {
 	}
 

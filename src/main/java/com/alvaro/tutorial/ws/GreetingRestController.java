@@ -1,26 +1,22 @@
-package com.bnparibas.tutorial.ws;
+package com.alvaro.tutorial.ws;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bnparibas.tutorial.aspect.Time;
-
-
+import com.alvaro.tutorial.aspect.Time;
 
 @RestController
 public class GreetingRestController {
 
-
 	@RequestMapping(value = "/countcows", method = RequestMethod.GET)
 	@Time
 	public int countcows() {
-		List<String> animals = Arrays.asList("cow", "sheep", "dog"	, "cow");
+		List<String> animals = Arrays.asList("cow", "sheep", "dog", "cow");
 		return Collections.frequency(animals, "cow");
 	}
 
